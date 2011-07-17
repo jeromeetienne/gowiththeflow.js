@@ -1,10 +1,6 @@
-var Flow	= require('../lib/flow.js')
+var Flow	= require('../lib/flow.js');
 
-console.dir(Flow());
-
-process.exit();
-
-if( true ){
+if( false ){
 	Flow()
 		.seq(function(next, err, result){
 			console.log("step0", err, '|', result);
@@ -23,9 +19,9 @@ if( true ){
 			}, 0.5*1000)
 		});	
 }else{
-	seq
+	Flow()
 		.seq(function(next){
-			console.log("step0")
+			console.log("step0 sequential")
 			next()
 		})
 		.par(function(next){
@@ -50,6 +46,5 @@ if( true ){
 			console.log("last step", err, '|', result);
 			next();
 		});
-	console.log(seq._stack)
 }
 
