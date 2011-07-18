@@ -74,7 +74,7 @@ for example
     }).seq(function(next, errors, results){
         console.log("job run *after* the completion of foo and bar");
         console.assert(errors.length == 2 && errors[0] === null && errors[1] == null)
-        console.assert(results.length == 2 && results[0] === null && results[1] == null)
+        console.assert(results.length == 2 && results[0] === 'foo' && results[1] == 'bar')
         next();
     })
 
