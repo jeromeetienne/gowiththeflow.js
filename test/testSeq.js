@@ -42,4 +42,4 @@ Flow()
 	.seq(function(next){
 		console.log("\tTest: Success - no error")
 		clearTimeout(timeoutId)
-	});	
+	});
