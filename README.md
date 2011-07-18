@@ -5,15 +5,15 @@ It allow to control how your asynchronous code Is executed, sequentially or in p
 
 # how to use it
 
-   Flow().seq(function(next){
-       console.log("step 1: started, it will last 1sec");
-       setTimeout(function(){
-           console.log("step 1: 1sec expired. Step 1 completed");
-           next();
-       }, 1000);
-   }).seq(function(next){
-       console.log("step 2: run after step1 has been completed");
-   })
+    Flow().seq(function(next){
+        console.log("step 1: started, it will last 1sec");
+        setTimeout(function(){
+            console.log("step 1: 1sec expired. Step 1 completed");
+            next();
+        }, 1000);
+    }).seq(function(next){
+        console.log("step 2: run after step1 has been completed");
+    })
 
 It will display the following
 
