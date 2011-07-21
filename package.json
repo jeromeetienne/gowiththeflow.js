@@ -2,5 +2,5 @@
 	"name"		: "gowiththeflow",
 	"version"	: "1.0.0",
 	"description"	: "asynchronous flow-control micro library",
-	"main"		: "flowcontrol.js"
+	"main"		: "gowiththeflow.js"
 }
