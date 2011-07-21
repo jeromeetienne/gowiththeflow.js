@@ -1,4 +1,4 @@
-var Flow	= Flow	|| require('../lib/flow.js');
+var Flow	= Flow	|| require('../gowiththeflow.js');
 
 var timeoutId	= setTimeout(function(){
 	console.assert(false, "this timer should never fire")
