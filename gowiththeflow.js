@@ -2,7 +2,7 @@ var Flow	= function(){
 	var self, _timerId, _stack = [];
 	return self = {
 		par	: function(callback, isSeq){
-			if(!_timerId)	_timerId = setTimeout(self._next.bind(self), 0)
+			_timerId = _timerId || setTimeout(self._next.bind(self), 0)
 			if(isSeq || !(_stack[_stack.length-1] instanceof Array)) _stack.push([]);
 			_stack[_stack.length-1].push(callback);
 			return self;
