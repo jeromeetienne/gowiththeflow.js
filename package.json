@@ -1,6 +1,6 @@
 {
 	"name"		: "gowiththeflow",
-	"version"	: "1.0.0",
-	"description"	: "asynchronous flow-control micro library",
+	"version"	: "1.0.1",
+	"description"	: "asynchronous control flow micro library",
 	"main"		: "gowiththeflow.js"
 }

@@ -1,13 +1,13 @@
 var Flow	= function(){
-	var self, _stack = [], _timerId = setTimeout(function(){ self._next(); }, 0);
+	var self, stack = [], timerId = setTimeout(function(){ self._next(); }, 0);
 	return self = {
 		par	: function(callback, isSeq){
-			if(isSeq || !(_stack[_stack.length-1] instanceof Array)) _stack.push([]);
-			_stack[_stack.length-1].push(callback);
+			if(isSeq || !(stack[stack.length-1] instanceof Array)) stack.push([]);
+			stack[stack.length-1].push(callback);
 			return self;
 		},seq	: function(callback){ return self.par(callback, true);	},
 		_next	: function(err, result){
-			var errors = [], results = [], callbacks = _stack.shift(), nbReturn = callbacks.length, isSeq = nbReturn == 1;
+			var errors = [], results = [], callbacks = stack.shift(), nbReturn = callbacks.length, isSeq = nbReturn == 1;
 			callbacks && callbacks.forEach(function(fct, index){
 				fct(function(error, result){
 					errors[index]	= error;
