@@ -7,13 +7,12 @@ var Flow	= function(){
 			return self;
 		},seq	: function(callback){ return self.par(callback, true);	},
 		_next	: function(err, result){
-			var errors = [], results = [], nbReturn = 0, callbacks = _stack.shift();
+			var errors = [], results = [], callbacks = _stack.shift(), nbReturn = callbacks.length, isSeq = nbReturn == 1;
 			callbacks && callbacks.forEach(function(fct, index){
 				fct(function(error, result){
 					errors[index]	= error;
 					results[index]	= result;		
-					if( ++nbReturn != callbacks.length )	return;
-					callbacks.length > 1 ? self._next(errors, results) : self._next(errors[0], results[0])
+					if(--nbReturn == 0)	self._next(isSeq?errors[0]:errors, isSeq?results[0]:results)
 				}, err, result)
 			})
 		}
