@@ -24,7 +24,7 @@ if( typeof module !== "undefined" && ('exports' in module)){
 	module.exports	= Flow;
 }
 
-// AMD Integration
+// Asynchronous Module Definition - http://requirejs.org/docs/whyamd.html
 if( typeof define === 'function' && define.amd) {
 	define('Flow', [], function () { return Flow; } );
 }
