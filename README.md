@@ -1,26 +1,28 @@
 # GoWithTheFlow.js - a javascript flow control micro library
 
 GoWithTheFlow.js is a javascript asynchronous flow-control micro library which works **in
-node.js and in browser**. It allow to control how your
-asynchronous code is executed, sequentially or in parallel.
-Flow() is only 30lines. 
+node.js and in browser**. It allows controlling how your
+asynchronous code is executed, that is, sequentially or in parallel.
+Flow() is only 30 lines long! 
 
 # How to use it
 
-Let start with a basic example. 2 jobs run in sequence. The first job is a timeout
-so the result is delivered asynchronously, and a second job is run only *after* the
-completion of the first.
+Let's start with a basic example: 2 jobs ran in sequence. The first job is a timeout
+hence the result is delivered asynchronously; the second job is to be ran only *after*
+completion of the first job.
 
-    var Flow = require('gowiththeflow')
-    Flow().seq(function(next){
-        console.log("step 1: started, it will last 1sec");
-        setTimeout(function(){
-            console.log("step 1: 1sec expired. Step 1 completed");
-            next();
-        }, 1000);
-    }).seq(function(next){
-        console.log("step 2: run after step1 has been completed");
-    })
+``` js
+var Flow = require('gowiththeflow')
+Flow().seq(function(next){
+    console.log("step 1: started, it will last 1sec");
+    setTimeout(function(){
+        console.log("step 1: 1sec expired. Step 1 completed");
+        next();
+    }, 1000);
+}).seq(function(next){
+    console.log("step 2: run after step1 has been completed");
+})
+```
 
 It will display the following
 
@@ -42,9 +44,9 @@ The callback signature is ```callback(next, error, result)```
 to the next job. *result* to notify a result. *error* and *result* may be omitted, if so they are considered
 equal to ```undefined```
 
-* ```error``` is the error send by previous jobs
+* ```error``` is the error send by the previous jobs
 
-* ```result``` is the result send by previous jobs
+* ```result``` is the result send by the previous jobs
 
 for example
 
@@ -61,7 +63,7 @@ for example
 
 ```.par()``` is used to execute functions in parallel. The *callback* parameter is the same as for ```.seq()```.
 If multiple .par() are declared one after another, they are run in parallel. The first ```.seq()``` after them
-will receive all the *error* and *result* in Array. One array item per previous ```.par()```
+will receive all the *error* and *result* in an Array, one array item per previous ```.par()```
 
 for example
 
@@ -78,11 +80,12 @@ for example
         next();
     })
 
-That's it
+That's it!
 
 # Conclusion
 
 GoWithTheFlow.js is available on github <a href='https://github.com/jeromeetienne/gowiththeflow.js'>here</a>
 under <a href='https://github.com/jeromeetienne/gowiththeflow.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
 If you hit bugs, fill issues on github.
+
 Feel free to fork, modify and have fun with it :)
