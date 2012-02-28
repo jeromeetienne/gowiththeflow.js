@@ -50,6 +50,7 @@ equal to ```undefined```
 
 for example
 
+```javascript
     Flow().seq(function(next){
         console.log("first job");
         next();
@@ -57,7 +58,7 @@ for example
         console.log("second job. run *after* first job");
         next();
     })
-
+```
 
 ## .par(callback) to execute job in parallel
 
@@ -67,6 +68,7 @@ will receive all the *error* and *result* in an Array, one array item per previo
 
 for example
 
+```javascript
     Flow().par(function(next){
         console.log("job foo");
         next(null, "foo");
@@ -79,6 +81,7 @@ for example
         console.assert(results.length == 2 && results[0] === 'foo' && results[1] == 'bar')
         next();
     })
+```
 
 That's it!
 
