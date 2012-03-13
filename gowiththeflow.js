@@ -1,6 +1,7 @@
 var Flow	= function(){
-	var self, stack = [], timerId = setTimeout(function(){ self._next(); }, 0);
+	var self, stack = [], timerId = setTimeout(function(){ timerId = null; self._next(); }, 0);
 	return self = {
+		destroy : function(){ timerId && clearTimeout(timerId); },
 		par	: function(callback, isSeq){
 			if(isSeq || !(stack[stack.length-1] instanceof Array)) stack.push([]);
 			stack[stack.length-1].push(callback);

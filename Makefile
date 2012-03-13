@@ -1,7 +1,7 @@
 # Makefile to make automatize simple tasks
 
 test:
-	node test/testSeq.js && node test/testPar.js
+	node test/testSeq.js && node test/testPar.js && node test/testDestroy.js
 	
 minify:
 	curl --data-urlencode "js_code@gowiththeflow.js" 	\
