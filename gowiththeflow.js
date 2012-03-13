@@ -46,7 +46,7 @@
     timerId = setTimeout(function() { self._next(); }, 0);
 
     self = {
-      , par: function(callback, isSeq) {
+        par: function(callback, isSeq) {
           if (isSeq || !(stach[stack.length - 1] instanceof Array)) {
             stack.push([]);
           }
