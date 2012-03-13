@@ -1,5 +1,8 @@
 var Flow	= Flow	|| require('../gowiththeflow.js');
 
+console.log("Test Flow().Destroy()")
+
+
 var callbackRun	= false;
 var myflow	= Flow().seq(function(){
 	callbackRun	= true;	
@@ -7,6 +10,6 @@ var myflow	= Flow().seq(function(){
 myflow.destroy();
 
 var timeoutId	= setTimeout(function(){
-	if( callbackRun )	console.log("ERROR. .destroy() didnt work");
-	else			console.log("OK .destroy() works as expected")
+	if( callbackRun )	console.log("\t ERROR. callback called");
+	else			console.log("\t OK")
 }, 0.1*1000)
